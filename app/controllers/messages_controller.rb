@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MessagesController < ApplicationController
   before_action :set_message, only: %i[show edit update destroy]
 
@@ -22,7 +24,8 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.user = current_user
     @message.save
-    redirect_to request.referrer
+
+    SendMessageJob.perform_later(@message)
   end
 
   # PATCH/PUT /messages/1 or /messages/1.json

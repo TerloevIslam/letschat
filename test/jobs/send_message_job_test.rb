@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class RoomTest < ActiveSupport::TestCase
+class SendMessageJobTest < ActiveJob::TestCase
   # test "the truth" do
   #   assert true
   # end

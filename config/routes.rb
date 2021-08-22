@@ -1,6 +1,6 @@
-Rails.application.routes.draw do
-  mount ActionCable.server => '/rooms'
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
   resources :messages
   resources :rooms
 
